@@ -13,13 +13,14 @@ public class navDev {
 
         gpsIsConn = checkGPSConnection();
 
+        //Loop to continuously get necessary info to allow for real-time ETA updates
         if (tApiIsConn && gpsIsConn) {
 
             while (tApiIsConn && gpsIsConn) { 
                 currTDensity = requestTrafficDensity();
                 currPos = requestPosition();
 
-                ETA = calculateETA(currTDensity, currPos);
+                ETA = calculateETA(currTDensity, currPos, endPos);
 
                 System.out.println(ETA);
             }
@@ -65,7 +66,7 @@ public class navDev {
         return currPos;
     }
 
-    public static double calculateETA(double tDensity, gpsCoords currPos) {
+    public static double calculateETA(double tDensity, gpsCoords currPos, gpsCoords endPos) {
         //Implement method to estimate ETA with traffic and postion data
 
         return 0.0;
